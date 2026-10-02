@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 rx=%2214%22 fill=%22%231479FF%22/%3E%3Ctext x=%2232%22 y=%2244%22 font-family=%22Arial%22 font-weight=%22900%22 font-size=%2230%22 fill=%22white%22 text-anchor=%22middle%22%3E1w%3C/text%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1win — Out the Back</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        ink: '#0A0B0E',
+        panel: '#101218',
+        winblue: '#1479FF',
+        winblue2: '#4DA3FF',
+        mute: '#8A93A6',
+      },
+      fontFamily: {
+        head: ['Sora', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+      },
+    },
+  },
+};
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #0A0B0E; }
+  section[id] { scroll-margin-top: 72px; }
+  ::selection { background: #1479FF; color: #fff; }
+
+  .eyebrow { letter-spacing: .28em; }
+  .hero-copy h1, .hero-copy p { text-shadow: 0 2px 28px rgba(0,0,0,.75), 0 1px 4px rgba(0,0,0,.5); }
+
+  .slot { position: relative; overflow: hidden; background:
+      repeating-linear-gradient(45deg,#101218,#101218 12px,#0d0f14 12px,#0d0f14 24px);
+      border: 1px solid rgba(255,255,255,.08); }
+  .slot::after { content: attr(data-label); position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center; text-align:center;
+      color: #5c6472; font-family: 'Sora',sans-serif; font-weight:700; font-size: .8rem;
+      letter-spacing: .18em; padding: 1rem; pointer-events: none; }
+  .slot img { position: relative; width: 100%; height: 100%; object-fit: cover; display:block; }
+  .slot:has(img)::after { display: none; }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  .navlink.active { color: #fff; }
+  .navlink.active::after { width: 100%; }
+  .navlink { position: relative; }
+  .navlink::after { content:''; position:absolute; left:0; bottom:-4px; height:1px; width:0; background:#1479FF; transition:width .3s ease; }
+
+  .zoom { cursor: zoom-in; }
+  #lb { position: fixed; inset: 0; z-index: 100; background: rgba(5,6,8,.94); display: none; align-items: center; justify-content: center; padding: 16px; cursor: zoom-out; }
+  #lb.open { display: flex; }
+  #lb img { max-width: 100%; max-height: 100%; border-radius: 12px; }
+  @media print { .reveal { opacity:1 !important; transform:none !important; } .no-print{display:none;} }
+</style>
+</head>
+<body class="font-body text-white antialiased">
+
+<!-- NAV -->
+<header class="no-print fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-ink/70 border-b border-white/5">
+  <div class="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between">
+    <a href="#hero" class="font-head font-extrabold tracking-tight text-sm">
+      <span class="text-winblue">1win</span> <span class="text-mute font-semibold">× Out the Back</span>
+    </a>
+    <nav class="hidden md:flex gap-7 text-sm text-mute font-medium">
+      <a href="#concepts" class="navlink hover:text-white transition">Concepts</a>
+      <a href="#deliverables" class="navlink hover:text-white transition">Deliverables</a>
+      <a href="#branding" class="navlink hover:text-white transition">Branding</a>
+      <a href="#budget" class="navlink hover:text-white transition">Budget</a>
+    </nav>
+  </div>
+</header>
+
+<!-- 1 · HERO -->
+<section id="hero" class="relative pt-[72px] md:pt-0">
+  <img src="photos/hero-all-three.jpg" alt="The 1win ATV, motorcycle and sidecar in freefall together" class="w-full block" onerror="this.style.display='none'">
+  <div class="hidden md:block absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-transparent"></div>
+  <div class="md:absolute md:inset-0 flex items-end pt-8 pb-4 md:pb-20">
+    <div class="max-w-6xl mx-auto px-6 w-full hero-copy">
+      <p class="eyebrow uppercase text-winblue2 text-xs font-semibold mb-4">Three vehicles. One open ramp.</p>
+      <h1 class="font-head font-extrabold leading-[0.92] text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight">
+        1WIN OUT<br>THE BACK.
+      </h1>
+    </div>
+  </div>
+  <div class="no-print hidden md:block absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-mute text-xs eyebrow uppercase animate-pulse">Scroll ↓</div>
+</section>
+
+<!-- 2 · THE CONCEPTS -->
+<section id="concepts" class="relative overflow-hidden py-14 md:py-20">
+  <div aria-hidden="true" class="pointer-events-none absolute top-10 right-6 select-none"><span class="font-head font-extrabold leading-none tracking-tighter text-white/[0.10]" style="font-size:9vw">1win</span></div>
+  <div class="relative z-10 max-w-6xl mx-auto px-6">
+    <p class="eyebrow uppercase text-winblue text-sm font-bold reveal">01 — The Concepts</p>
+    <p class="mt-4 text-mute max-w-2xl reveal">A 1win-branded vehicle rolls off the open ramp of the plane with a rider on board. They ride it in freefall, let go, and open their parachutes. The vehicle keeps falling.</p>
+
+
+    <div class="reveal mt-14 md:mt-20">
+      <div class="grid md:grid-cols-3 gap-6 md:gap-10 items-end">
+        <div>
+          <div class="text-winblue text-xs eyebrow uppercase">Concept 01</div>
+          <div class="font-head font-extrabold text-3xl md:text-4xl mt-1">The ATV</div>
+          <p class="mt-3 text-mute leading-relaxed">A rider on a 1win quad rolls off the ramp, with a second skydiver flying alongside holding the rear rack.</p>
+        </div>
+        <div class="md:col-span-2 slot aspect-[3/2] rounded-xl zoom" data-label="THE ATV"><img src="photos/atv-flyer.jpg" alt="The ATV" onerror="this.remove()"></div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-3 md:mt-6">
+          <figure><div class="slot aspect-[3/2] rounded-lg zoom" data-label="IN THE PLANE"><img src="photos/atv-cabin.jpg" alt="The ATV — In the plane" onerror="this.remove()"></div><figcaption class="mt-2 text-xs text-mute eyebrow uppercase">In the plane</figcaption></figure>
+          <figure><div class="slot aspect-[3/2] rounded-lg zoom" data-label="OFF THE RAMP"><img src="photos/atv-exit.jpg" alt="The ATV — Off the ramp" onerror="this.remove()"></div><figcaption class="mt-2 text-xs text-mute eyebrow uppercase">Off the ramp</figcaption></figure>
+          <figure><div class="slot aspect-[3/2] rounded-lg zoom" data-label="RIDER POV"><img src="photos/atv-pov.jpg" alt="The ATV — Rider POV" onerror="this.remove()"></div><figcaption class="mt-2 text-xs text-mute eyebrow uppercase">Rider POV</figcaption></figure>
+          <figure><div class="slot aspect-[3/2] rounded-lg zoom" data-label="THE LANDING"><img src="photos/atv-impact.jpg" alt="The ATV — The landing" onerror="this.remove()"></div><figcaption class="mt-2 text-xs text-mute eyebrow uppercase">The landing</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="reveal mt-14 md:mt-20">
+      <div class="grid md:grid-cols-3 gap-6 md:gap-10 items-end">
+        <div>
+          <div class="text-winblue text-xs eyebrow uppercase">Concept 02</div>
+          <div class="font-head font-extrabold text-3xl md:text-4xl mt-1">The Motorcycle</div>
+          <p class="mt-3 text-mute leading-relaxed">One rider, one 1win sport bike, straight off the ramp into freefall.</p>
+        </div>
+        <div class="md:col-span-2 slot aspect-[3/2] rounded-xl zoom" data-label="THE MOTORCYCLE"><img src="photos/moto-flyer.jpg" alt="The Motorcycle" onerror="this.remove()"></div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-3 md:mt-6">
+          <figure><div class="slot aspect-[3/2] rounded-lg zoom" data-label="IN THE PLANE"><img src="photos/moto-cabin.jpg" alt="The Motorcycle — In the plane" onerror="this.remove()"></div><figcaption class="mt-2 text-xs text-mute eyebrow uppercase">In the plane</figcaption></figure>
+          <figure><div class="slot aspect-[3/2] rounded-lg zoom" data-label="OFF THE RAMP"><img src="photos/moto-exit.jpg" alt="The Motorcycle — Off the ramp" onerror="this.remove()"></div><figcaption class="mt-2 text-xs text-mute eyebrow uppercase">Off the ramp</figcaption></figure>
+          <figure><div class="slot aspect-[3/2] rounded-lg zoom" data-label="RIDER POV"><img src="photos/moto-pov.jpg" alt="The Motorcycle — Rider POV" onerror="this.remove()"></div><figcaption class="mt-2 text-xs text-mute eyebrow uppercase">Rider POV</figcaption></figure>
+          <figure><div class="slot aspect-[3/2] rounded-lg zoom" data-label="THE LANDING"><img src="photos/moto-impact.jpg" alt="The Motorcycle — The landing" onerror="this.remove()"></div><figcaption class="mt-2 text-xs text-mute eyebrow uppercase">The landing</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="reveal mt-14 md:mt-20">
+      <div class="grid md:grid-cols-3 gap-6 md:gap-10 items-end">
+        <div>
+          <div class="text-winblue text-xs eyebrow uppercase">Concept 03</div>
+          <div class="font-head font-extrabold text-3xl md:text-4xl mt-1">The Sidecar</div>
+          <p class="mt-3 text-mute leading-relaxed">Two riders, one on the bike and one in the sidecar, leave the plane together.</p>
+        </div>
+        <div class="md:col-span-2 slot aspect-[3/2] rounded-xl zoom" data-label="THE SIDECAR"><img src="photos/sidecar-flyer.jpg" alt="The Sidecar" onerror="this.remove()"></div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6 mt-3 md:mt-6">
+          <figure><div class="slot aspect-[3/2] rounded-lg zoom" data-label="IN THE PLANE"><img src="photos/sidecar-cabin.jpg" alt="The Sidecar — In the plane" onerror="this.remove()"></div><figcaption class="mt-2 text-xs text-mute eyebrow uppercase">In the plane</figcaption></figure>
+          <figure><div class="slot aspect-[3/2] rounded-lg zoom" data-label="OFF THE RAMP"><img src="photos/sidecar-exit.jpg" alt="The Sidecar — Off the ramp" onerror="this.remove()"></div><figcaption class="mt-2 text-xs text-mute eyebrow uppercase">Off the ramp</figcaption></figure>
+          <figure><div class="slot aspect-[3/2] rounded-lg zoom" data-label="RIDER POV"><img src="photos/sidecar-pov.jpg" alt="The Sidecar — Rider POV" onerror="this.remove()"></div><figcaption class="mt-2 text-xs text-mute eyebrow uppercase">Rider POV</figcaption></figure>
+          <figure><div class="slot aspect-[3/2] rounded-lg zoom" data-label="THE LANDING"><img src="photos/sidecar-impact.jpg" alt="The Sidecar — The landing" onerror="this.remove()"></div><figcaption class="mt-2 text-xs text-mute eyebrow uppercase">The landing</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · DELIVERABLES -->
+<section id="deliverables" class="relative overflow-hidden py-14 md:py-20 border-y border-white/5 bg-panel/40">
+  <div aria-hidden="true" class="pointer-events-none absolute top-10 right-6 select-none"><span class="font-head font-extrabold leading-none tracking-tighter text-white/[0.10]" style="font-size:9vw">1win</span></div>
+  <div class="relative z-10 max-w-6xl mx-auto px-6">
+    <p class="eyebrow uppercase text-winblue text-sm font-bold reveal">02 — Deliverables</p>
+
+    <div class="reveal rounded-2xl border border-white/10 bg-ink p-7 md:p-9 mt-14">
+      <div class="text-winblue text-xs eyebrow uppercase">Every concept</div>
+      <ul class="mt-5 space-y-3 text-white/85 md:text-lg">
+        <li class="flex gap-3"><span class="text-winblue">→</span> 2× Reels on my profile, collab'd with 1win</li>
+        <li class="flex gap-3"><span class="text-winblue">→</span> Numerous trial reels at the creator's discretion to maximize views</li>
+      </ul>
+    </div>
+
+    <div class="mt-8 rounded-2xl border border-winblue/40 bg-winblue/5 p-6 reveal">
+      <div class="flex gap-3 items-start">
+        <span class="text-winblue font-bold text-lg leading-none mt-0.5">→</span>
+        <p class="text-white/90"><span class="font-semibold">Included with every concept:</span> 1win gets full access to <span class="text-white font-semibold">all footage from the project</span> — edit it, repurpose it, and post it on your own channels. Want to cut your own reels internally? It's all yours.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 · BRANDING -->
+<section id="branding" class="relative overflow-hidden py-14 md:py-20">
+  <div aria-hidden="true" class="pointer-events-none absolute top-10 right-6 select-none"><span class="font-head font-extrabold leading-none tracking-tighter text-white/[0.10]" style="font-size:9vw">1win</span></div>
+  <div class="relative z-10 max-w-6xl mx-auto px-6">
+    <p class="eyebrow uppercase text-winblue text-sm font-bold reveal">03 — Branding</p>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-14">
+      <div class="reveal">
+        <div class="border-b border-white/10 pb-4">
+          <div class="text-winblue text-xs eyebrow uppercase">Concept 01</div>
+          <h3 class="font-head font-extrabold text-2xl mt-1">The ATV</h3>
+        </div>
+        <div class="mt-6">
+          <div class="slot aspect-[3/2] rounded-lg" data-label="ATV"><img src="photos/atv-freefall.jpg" alt="" onerror="this.remove()"></div>
+        </div>
+        <ul class="mt-5 space-y-1.5 text-sm text-mute list-disc pl-5 marker:text-winblue">
+          <li>1win branding on the vehicle</li>
+          <li>Riders in 1win merch</li>
+          <li>Camera flyer angle</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="border-b border-white/10 pb-4">
+          <div class="text-winblue text-xs eyebrow uppercase">Concept 02</div>
+          <h3 class="font-head font-extrabold text-2xl mt-1">The Motorcycle</h3>
+        </div>
+        <div class="mt-6">
+          <div class="slot aspect-[3/2] rounded-lg" data-label="MOTORCYCLE"><img src="photos/moto-freefall.jpg" alt="" onerror="this.remove()"></div>
+        </div>
+        <ul class="mt-5 space-y-1.5 text-sm text-mute list-disc pl-5 marker:text-winblue">
+          <li>1win branding on the vehicle</li>
+          <li>Rider in 1win merch</li>
+          <li>Camera flyer angle</li>
+        </ul>
+      </div>
+      <div class="reveal">
+        <div class="border-b border-white/10 pb-4">
+          <div class="text-winblue text-xs eyebrow uppercase">Concept 03</div>
+          <h3 class="font-head font-extrabold text-2xl mt-1">The Sidecar</h3>
+        </div>
+        <div class="mt-6">
+          <div class="slot aspect-[3/2] rounded-lg" data-label="SIDECAR"><img src="photos/sidecar-freefall.jpg" alt="" onerror="this.remove()"></div>
+        </div>
+        <ul class="mt-5 space-y-1.5 text-sm text-mute list-disc pl-5 marker:text-winblue">
+          <li>1win across the sidecar nose</li>
+          <li>1win branding on the bike</li>
+          <li>Both riders in 1win merch</li>
+          <li>Camera flyer angle</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACT BAND -->
+<section class="relative zoom" aria-label="The landing">
+  <img src="photos/sidecar-impact.jpg" alt="Riders under parachutes as the 1win sidecar hits the desert" class="w-full block h-[60vh] md:h-auto object-cover" onerror="this.parentElement.remove()">
+  <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-transparent to-ink/40"></div>
+  <div class="absolute inset-x-0 bottom-0 pb-8 md:pb-16">
+    <div class="max-w-6xl mx-auto px-6 hero-copy">
+      <h2 class="font-head font-extrabold text-3xl sm:text-5xl md:text-6xl tracking-tight leading-[0.95]">THE RIDERS FLY.<br>THE VEHICLE DOESN'T.</h2>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · BUDGET -->
+<section id="budget" class="relative overflow-hidden py-14 md:py-20">
+  <div aria-hidden="true" class="pointer-events-none absolute top-10 right-6 select-none">
+    <span class="font-head font-extrabold leading-none tracking-tighter text-white/[0.10]" style="font-size:9vw">1win</span>
+  </div>
+  <div class="relative max-w-6xl mx-auto px-6">
+    <p class="eyebrow uppercase text-winblue text-sm font-bold reveal">04 — Budget</p>
+
+    <div class="grid md:grid-cols-3 gap-6 mt-14">
+      <div class="reveal rounded-2xl border border-white/10 p-10 text-center">
+        <div class="font-head font-bold text-lg">The ATV</div>
+        <div class="font-head font-extrabold text-5xl md:text-6xl text-winblue mt-4">$50K</div>
+      </div>
+      <div class="reveal rounded-2xl border border-white/10 p-10 text-center">
+        <div class="font-head font-bold text-lg">The Motorcycle</div>
+        <div class="font-head font-extrabold text-5xl md:text-6xl text-winblue mt-4">$50K</div>
+      </div>
+      <div class="reveal rounded-2xl border border-white/10 p-10 text-center">
+        <div class="font-head font-bold text-lg">The Sidecar</div>
+        <div class="font-head font-extrabold text-5xl md:text-6xl text-winblue mt-4">$65K</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="relative overflow-hidden py-14 md:py-20 border-t border-white/5 bg-panel/40 text-center">
+  <div aria-hidden="true" class="pointer-events-none absolute top-10 right-6 select-none">
+    <span class="font-head font-extrabold leading-none tracking-tighter text-white/[0.04]" style="font-size:26vw">1win</span>
+  </div>
+  <div class="relative max-w-3xl mx-auto px-6">
+    <p class="font-head font-extrabold text-2xl md:text-3xl tracking-tight reveal">Kyle Zellner</p>
+    <p class="text-mute mt-3 reveal"><a href="mailto:kylezellner2@gmail.com" class="text-winblue hover:underline">kylezellner2@gmail.com</a></p>
+  </div>
+</footer>
+
+<div id="lb" class="no-print" onclick="this.classList.remove('open')"><img alt=""></div>
+<script>
+  // Tap any render to view it full screen
+  document.querySelectorAll('.zoom').forEach(el => el.addEventListener('click', () => {
+    const img = el.querySelector('img'); if (!img) return;
+    const lb = document.getElementById('lb'); lb.querySelector('img').src = img.src; lb.classList.add('open');
+  }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('lb').classList.remove('open'); });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  const revealAll = () => document.querySelectorAll('.reveal').forEach(el => {
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight && r.bottom > 0) el.classList.add('in'); else io.observe(el);
+  });
+  revealAll();
+  window.addEventListener('load', revealAll);
+
+  // Count-up
+  const countIO = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, to = +el.dataset.to; let start = null;
+      const dec = to % 1 !== 0;
+      const dur = 1400;
+      const step = (t) => {
+        if (!start) start = t;
+        const p = Math.min((t - start) / dur, 1);
+        el.textContent = dec ? (p * to).toFixed(1) : Math.floor(p * to).toString();
+        if (p < 1) requestAnimationFrame(step); else el.textContent = dec ? to.toFixed(1) : to;
+      };
+      requestAnimationFrame(step);
+      countIO.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+  document.querySelectorAll('.count').forEach(el => countIO.observe(el));
+
+  // Active nav highlight — pick the last section whose top has passed just under the header
+  const links = [...document.querySelectorAll('.navlink')];
+  const map = links.map(l => ({ l, sec: document.querySelector(l.getAttribute('href')) })).filter(x => x.sec);
+  function updateActiveNav() {
+    const line = 90;
+    let current = null;
+    for (const m of map) {
+      if (m.sec.getBoundingClientRect().top <= line) current = m;
+    }
+    links.forEach(l => l.classList.remove('active'));
+    if (current) current.l.classList.add('active');
+  }
+  updateActiveNav();
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  window.addEventListener('resize', updateActiveNav);
+</script>
+</body>
+</html>

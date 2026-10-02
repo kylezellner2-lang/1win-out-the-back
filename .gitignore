@@ -1,0 +1,7 @@
+*.png
+photos/_attempts/
+refs/
+COWORK-PROMPT*.md
+BUDGET-RESEARCH.md
+photos/RENDER-LOG.md
+.DS_Store
