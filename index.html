@@ -80,19 +80,18 @@ tailwind.config = {
 </header>
 
 <!-- 1 · HERO -->
-<section id="hero" class="relative pt-[72px] md:pt-0">
-  <img src="photos/hero-all-three.jpg" alt="The 1win ATV, motorcycle and sidecar in freefall together" class="w-full block" onerror="this.style.display='none'">
-  <div class="hidden md:block absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-transparent"></div>
-  <div class="md:absolute md:inset-0 flex items-end pt-8 pb-4 md:pb-20">
+<section id="hero" class="relative pt-[72px]">
+  <img src="photos/hero-all-three.jpg" alt="The 1win ATV, motorcycle and sidecar in freefall together" class="w-full block md:aspect-[2/1] md:object-cover md:object-top" onerror="this.style.display='none'">
+  <div class="hidden md:block absolute inset-x-0 bottom-0 top-[72px] bg-gradient-to-t from-ink/80 via-ink/10 to-transparent"></div>
+  <div class="md:absolute md:inset-x-0 md:bottom-0 md:top-[72px] flex items-end pt-8 pb-4 md:pb-12 lg:pb-16">
     <div class="max-w-6xl mx-auto px-6 w-full hero-copy">
-      <p class="eyebrow uppercase text-winblue2 text-xs font-semibold mb-4">Three vehicles. One open ramp.</p>
+      <p class="eyebrow uppercase text-white/90 text-xs md:text-sm font-semibold mb-4">Three vehicles. One open ramp.</p>
       <h1 class="font-head font-extrabold leading-[0.92] text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight">
         1WIN OUT<br>THE BACK.
       </h1>
     </div>
   </div>
-  <div class="no-print hidden md:block absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-mute text-xs eyebrow uppercase animate-pulse">Scroll ↓</div>
-</section>
+  </section>
 
 <!-- 2 · THE CONCEPTS -->
 <section id="concepts" class="relative overflow-hidden py-14 md:py-20">
